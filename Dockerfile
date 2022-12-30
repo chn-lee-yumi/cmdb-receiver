@@ -1,13 +1,10 @@
-FROM alpine:latest AS build
-RUN apk update
-RUN apk upgrade
-RUN apk add --update go gcc g++
+FROM golang:1.19-alpine AS build
+RUN mkdir /app
+ADD . /app/
 WORKDIR /app
-ENV GOPATH /app
-ADD . /app/src/cmdb-receiver
-RUN CGO_ENABLED=1 GOOS=linux go build cmdb-receiver
+RUN go build -o cmdb-receiver .
 
 FROM alpine:latest
 WORKDIR /
-COPY --from=build /app/bin/cmdb-receiver /cmdb-receiver
+COPY --from=build /app/cmdb-receiver /cmdb-receiver
 ENTRYPOINT ["/cmdb-receiver"]

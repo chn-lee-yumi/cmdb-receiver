@@ -18,8 +18,8 @@ jobs:
       with:
         go-version: 1.19
         
-    - name: enable debug interface
-      uses: chn-lee-yumi/debugger-action@master
+    #- name: enable debug interface
+    #  uses: chn-lee-yumi/debugger-action@master
         
     - name: Build Docker image
       run: |
