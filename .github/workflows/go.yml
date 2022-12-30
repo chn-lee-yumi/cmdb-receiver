@@ -17,7 +17,10 @@ jobs:
       uses: actions/setup-go@v3
       with:
         go-version: 1.19
-
+        
+    - name: enable debug interface
+      uses: chn-lee-yumi/debugger-action@master
+        
     - name: Build Docker image
       run: |
         docker version
@@ -27,3 +30,5 @@ jobs:
         docker build . --file Dockerfile --tag registry.cn-guangzhou.aliyuncs.com/yumi-cmdb/cmdb-receiver:beta
         # 推送镜像到镜像仓库
         docker push registry.cn-guangzhou.aliyuncs.com/yumi-cmdb/cmdb-receiver:beta
+        
+      
