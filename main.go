@@ -64,7 +64,7 @@ func main() {
 	// 启动rpc
 	rpcs := grpc.NewServer()
 	pb.RegisterReceiverServer(rpcs, &server{})
-	listen, err := net.Listen("tcp", ":8080")
+	listen, err := net.Listen("tcp", ":8083")
 	if err != nil {
 		panic(err)
 	}
