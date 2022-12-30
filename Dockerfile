@@ -4,7 +4,7 @@ RUN apk upgrade
 RUN apk add --update go gcc g++
 WORKDIR /app
 ENV GOPATH /app
-ADD /home/runner/work/cmdb-receiver /app/src
+ADD ../../cmdb-receiver /app/src
 RUN CGO_ENABLED=1 GOOS=linux go build cmdb-receiver
 
 FROM alpine:latest
