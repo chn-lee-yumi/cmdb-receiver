@@ -19,7 +19,8 @@ jobs:
         go-version: 1.19
 
     - name: Build
-      run: go build -v
+      # 要禁用cgo，否则在alpine镜像内会报not found错误，神坑
+      run: go build -v -tags netgo
       
     - name: Build Docker image
       run: |
