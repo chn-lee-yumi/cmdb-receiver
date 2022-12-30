@@ -1,2 +1,2 @@
 #!/bin/bash
-./cmdb-receiver
+/cmdb-receiver
