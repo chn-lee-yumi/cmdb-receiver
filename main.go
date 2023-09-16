@@ -21,7 +21,8 @@ type server struct {
 
 func sendKafkaMessage(message []byte) {
 	// 连接kafka
-	producer, err := sarama.NewSyncProducer([]string{"10.0.0.5:9092"}, nil)
+	// producer, err := sarama.NewSyncProducer([]string{"10.0.0.5:9092"}, nil)
+	producer, err := sarama.NewSyncProducer([]string{"kafka.nic-kafka.svc.cluster.local:9092"}, nil)
 	if err != nil {
 		log.Fatalln(err)
 	}
